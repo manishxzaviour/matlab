@@ -1,0 +1,20 @@
+axx=imread('clpsm8.jpg');
+ax=rgb2gray(axx);
+a=double(ax/40);
+f=fspecial('laplacian');
+f1=fspecial('log');
+d=imfilter(a,f);
+e=imfilter(a,f1);
+c=edge(a,'zerocross',f); 
+subplot(2,2,1)
+imshow(a)
+title('original')
+subplot(2,2,2)
+imshow(d)
+title('laplace')
+subplot(2,2,3)
+imshow(e)
+title('laplace of gausian');
+subplot(2,2,4)
+imshow(c)
+title('zerocross');
